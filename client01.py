@@ -12,13 +12,5 @@ ADDR = (SERVER, PORT)
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ADDR)
 
-def send(msg): # send messeges 
-    messege = msg.encode(FORMAT) # we need to encode the messege to bytes format
-    msg_length = len(messege) #get the length of messege
-    send_length = str(msg_length).encode(FORMAT) # send length as a string
-    send_length += b' ' * (HEADER - len(send_length)) # b = byte respasentation of the string 
-    client.send(send_length)
-    client.send(messege)
 
-send("Hello!")
 
